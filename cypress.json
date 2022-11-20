@@ -1,0 +1,17 @@
+{
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/report/mochawesome-report",
+    "overwrite": false,
+    "html": false,
+    "json": true,
+    "timestamp": "mmddyyyy_HHMMss"
+  },
+  "integrationFolder": "./",
+  "testFiles": ["cypress/integration/*.test.{js,ts}", "src/**/*.test.{js,ts}"],
+  "component": {
+    "componentFolder": "src",
+    "testFiles": "**/*.test.{jsx,tsx}"
+  },
+  "fileServerFolder": "./public"
+}

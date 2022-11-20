@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.gannirepeat.com/sitemap.xml

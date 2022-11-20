@@ -1,0 +1,119 @@
+image: cypress/browsers:node14.17.0-chrome91-ff89
+
+definitions:
+  caches:
+    npm: $HOME/.npm
+    cypress: $HOME/.cache/Cypress
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Build, Test and Lint
+          caches:
+            - node
+            - cypress
+          script:
+            - export NEXT_PUBLIC_API_URL="https://api-dev2074.ganni-repeat.com"
+            - npm ci
+            # run tests
+            - npm run test
+            - npm run build
+          artifacts:
+            - cypress/screenshots/**
+            - cypress/videos/**
+      - step:
+          name: Deploy Serverless
+          deployment: Staging
+          caches:
+            - node
+          script:
+            # install Zip
+            - apt-get update && apt-get install --yes zip
+            # run tests
+            - npm ci
+            # install Aws cli
+            - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            - unzip awscliv2.zip
+            - ./aws/install
+            - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID_GR && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_GR && aws configure set default.region $AWS_DEFAULT_REGION_GR
+            - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_GR
+            - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_GR
+            - AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION_GR
+            #install serveless
+            - npm install serverless
+            - npm install serverless/cli
+            # pull serverless tmp file
+            - aws s3 sync s3://ganni-repeat-deploy/ganni-repeat-website/serverless/dev/ ./ --profile default
+            # unzip serverless cache to root
+            - |
+              if [ -f serverless_cache.zip ]
+              then
+                  unzip serverless_cache.zip -d "./"
+              fi
+            # deploy serverless
+            - npx serverless@2.72.2
+            #zip files
+            - zip -r --symlinks serverless_cache.zip "./.serverless" "./.serverless_nextjs"
+            # save serverless tmp file
+            - aws s3 cp serverless_cache.zip s3://ganni-repeat-deploy/ganni-repeat-website/serverless/dev/serverless_cache.zip --profile default
+    production:
+      - step:
+          name: Build, Test and Lint
+          caches:
+            - node
+            - cypress
+          script:
+            - export NEXT_PUBLIC_API_URL="https://api.gannirepeat.com"
+            - npm ci
+            # run tests
+            - npm run test
+            - npm run build
+          artifacts:
+            - cypress/screenshots/**
+            - cypress/videos/**
+      - step:
+          name: Deploy Serverless
+          deployment: Production
+          caches:
+            - node
+          script:
+            # install Zip
+            - apt-get update && apt-get install --yes zip
+            # run tests
+            - npm ci
+            # install Aws cli
+            - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            - unzip awscliv2.zip
+            - ./aws/install
+            - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID_GR && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_GR && aws configure set default.region $AWS_DEFAULT_REGION_GR
+            - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_GR
+            - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_GR
+            - AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION_GR
+            #install serveless
+            - npm install serverless
+            - npm install serverless/cli
+            # pull serverless tmp file
+            - aws s3 sync s3://ganni-repeat-deploy/ganni-repeat-website/serverless/production/ ./ --profile default
+
+            # unzip serverless cache to root
+            - |
+              if [ -f serverless_cache.zip ]
+              then
+                  unzip serverless_cache.zip -d "./"
+              fi
+            # deploy serverless
+            - cp -f serverless_production.yml serverless.yml
+            - npx serverless@2.72.2
+            #zip files
+            - zip -r --symlinks serverless_cache.zip "./.serverless" "./.serverless_nextjs"
+            # save serverless tmp file
+            - aws s3 cp serverless_cache.zip s3://ganni-repeat-deploy/ganni-repeat-website/serverless/production/serverless_cache.zip --profile default
+
+  custom:
+    deploy-to-prod:
+      - step:
+          script:
+            - git fetch
+            - git checkout -b production
+            - git push origin production --force

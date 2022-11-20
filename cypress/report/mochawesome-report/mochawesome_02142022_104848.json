@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-02-14T03:48:48.177Z",
+    "end": "2022-02-14T03:48:48.481Z",
+    "duration": 304,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "36a89c37-53a7-4edd-8b4c-027a154cfcb6",
+      "title": "",
+      "fullFile": "src/components/Counter/hooks.test.ts",
+      "file": "src/components/Counter/hooks.test.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ad353431-ab71-41d5-b5f0-5ec224a449ef",
+          "title": "",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should increment counter",
+              "fullTitle": " should increment counter",
+              "timedOut": null,
+              "duration": 126,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var result = Object(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"renderHook\"])(function () { return Object(_hooks__WEBPACK_IMPORTED_MODULE_1__[\"useCounter\"])(); }).result;\nObject(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"act\"])(function () {\n    result.current.increment();\n});\nexpect(result.current.counter).to.eq(1);",
+              "err": {},
+              "uuid": "6ff33977-0468-4040-aac8-d8dcad669258",
+              "parentUUID": "ad353431-ab71-41d5-b5f0-5ec224a449ef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should decrement counter",
+              "fullTitle": " should decrement counter",
+              "timedOut": null,
+              "duration": 48,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var result = Object(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"renderHook\"])(function () { return Object(_hooks__WEBPACK_IMPORTED_MODULE_1__[\"useCounter\"])(2); }).result;\nObject(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"act\"])(function () {\n    result.current.decrement();\n});\nexpect(result.current.counter).to.eq(1);",
+              "err": {},
+              "uuid": "1d451662-bbd6-4861-8522-ef1686f9dcad",
+              "parentUUID": "ad353431-ab71-41d5-b5f0-5ec224a449ef",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should prevent decrement below 0",
+              "fullTitle": " should prevent decrement below 0",
+              "timedOut": null,
+              "duration": 27,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var result = Object(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"renderHook\"])(function () { return Object(_hooks__WEBPACK_IMPORTED_MODULE_1__[\"useCounter\"])(); }).result;\nObject(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"act\"])(function () {\n    result.current.decrement();\n});\nexpect(result.current.counter).to.eq(0);",
+              "err": {},
+              "uuid": "7d6f09a3-b5a8-492f-903e-4199dbe2fe58",
+              "parentUUID": "ad353431-ab71-41d5-b5f0-5ec224a449ef",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6ff33977-0468-4040-aac8-d8dcad669258",
+            "1d451662-bbd6-4861-8522-ef1686f9dcad",
+            "7d6f09a3-b5a8-492f-903e-4199dbe2fe58"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 201,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.0.1"
+    }
+  }
+}

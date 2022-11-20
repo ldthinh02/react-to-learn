@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-02-14T03:47:28.223Z",
+    "end": "2022-02-14T03:47:47.708Z",
+    "duration": 19485,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0171b179-43ce-449c-9a14-a0168e11925a",
+      "title": "",
+      "fullFile": "cypress/integration/home.test.ts",
+      "file": "cypress/integration/home.test.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ac2a256-6e07-44c1-b9a4-b707fe2e998e",
+          "title": "Index Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should render",
+              "fullTitle": "Index Page should render",
+              "timedOut": null,
+              "duration": 11943,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"[data-cy=title]\").contains(\"Microdosing\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-cy=title]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[data-cy=title]`, but never found it.\n    at Context.eval (http://localhost:3000/__cypress/tests?p=cypress/integration/home.test.ts:104:12)",
+                "diff": null
+              },
+              "uuid": "0479d2fb-e0ac-4bbb-8913-da6ec4d29738",
+              "parentUUID": "5ac2a256-6e07-44c1-b9a4-b707fe2e998e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should redirect to About",
+              "fullTitle": "Index Page should redirect to About",
+              "timedOut": null,
+              "duration": 4558,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[href=\"/\"]').click();\ncy.url().should(\"include\", \"\");",
+              "err": {},
+              "uuid": "85361699-e580-4318-8a12-cac31caa9c9d",
+              "parentUUID": "5ac2a256-6e07-44c1-b9a4-b707fe2e998e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "85361699-e580-4318-8a12-cac31caa9c9d"
+          ],
+          "failures": [
+            "0479d2fb-e0ac-4bbb-8913-da6ec4d29738"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 16501,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.0.1"
+    }
+  }
+}

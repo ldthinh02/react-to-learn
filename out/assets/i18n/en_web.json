@@ -1,0 +1,19 @@
+{
+  "main_page": {
+    "faqs": "faqs",
+    "terms_condition": "terms & conditions",
+    "contact_us": "contact us",
+    "privacy_notice": "privacy notice",
+    "about": "about",
+    "how_to_repeat": "how to repeat",
+    "currency": "currency"
+  },
+  "menu": {
+    "new_in": "new in",
+    "sell": "sell",
+    "clothing": "clothing",
+    "shoes": "shoes",
+    "accessories": "accessories",
+    "login": "login"
+  }
+}

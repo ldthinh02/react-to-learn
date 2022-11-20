@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-03-25T01:15:44.605Z",
+    "end": "2022-03-25T01:15:44.803Z",
+    "duration": 198,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3461f56f-cec1-44dc-873b-a5d8f586e29e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "3a2aaa17-2b86-4b41-b5d3-6d856a14859b",
+          "title": "",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should increment counter",
+              "fullTitle": " should increment counter",
+              "timedOut": null,
+              "duration": 105,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var result = Object(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"renderHook\"])(function () { return Object(_hooks__WEBPACK_IMPORTED_MODULE_1__[\"useCounter\"])(); }).result;\nObject(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"act\"])(function () {\n    result.current.increment();\n});\nexpect(result.current.counter).to.eq(1);",
+              "err": {},
+              "uuid": "3498e8b9-ca90-4801-9b21-809311ab3622",
+              "parentUUID": "3a2aaa17-2b86-4b41-b5d3-6d856a14859b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should decrement counter",
+              "fullTitle": " should decrement counter",
+              "timedOut": null,
+              "duration": 31,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var result = Object(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"renderHook\"])(function () { return Object(_hooks__WEBPACK_IMPORTED_MODULE_1__[\"useCounter\"])(2); }).result;\nObject(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"act\"])(function () {\n    result.current.decrement();\n});\nexpect(result.current.counter).to.eq(1);",
+              "err": {},
+              "uuid": "aaa65bb0-e6f1-4c78-ab9e-b216a890f44b",
+              "parentUUID": "3a2aaa17-2b86-4b41-b5d3-6d856a14859b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should prevent decrement below 0",
+              "fullTitle": " should prevent decrement below 0",
+              "timedOut": null,
+              "duration": 28,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "var result = Object(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"renderHook\"])(function () { return Object(_hooks__WEBPACK_IMPORTED_MODULE_1__[\"useCounter\"])(); }).result;\nObject(_testing_library_react_hooks_native__WEBPACK_IMPORTED_MODULE_0__[\"act\"])(function () {\n    result.current.decrement();\n});\nexpect(result.current.counter).to.eq(0);",
+              "err": {},
+              "uuid": "5104c161-c246-4b2a-9386-fc79e5aefb30",
+              "parentUUID": "3a2aaa17-2b86-4b41-b5d3-6d856a14859b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3498e8b9-ca90-4801-9b21-809311ab3622",
+            "aaa65bb0-e6f1-4c78-ab9e-b216a890f44b",
+            "5104c161-c246-4b2a-9386-fc79e5aefb30"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 164,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.0"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.1.0"
+    }
+  }
+}
